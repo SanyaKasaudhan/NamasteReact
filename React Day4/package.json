@@ -1,0 +1,20 @@
+{
+  "name": "react-day4",
+  "version": "1.0.0",
+  "description": "React-4-FoodOrdering-App\r Config Driven UI?\r A dynamic UI which is changes based on data known as config driven UI. See if people on different location (As food odering App) see different data(UI).Basically, contoling UI by some configuration provided by backend API.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-plugin-transform-remove-console": "^6.9.4",
+    "parcel": "^2.8.2"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}
