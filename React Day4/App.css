@@ -1,0 +1,15 @@
+.nav_head {
+  color: black;
+  display: flex;
+  justify-content: space-between;
+}
+
+ul {
+  list-style: none;
+  display: flex;
+}
+
+li {
+  padding: 10px;
+  cursor: pointer;
+}

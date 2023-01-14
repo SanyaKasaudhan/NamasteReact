@@ -1,0 +1,17 @@
+.nav_head {
+  color: #000;
+  justify-content: space-between;
+  display: flex;
+}
+
+ul {
+  list-style: none;
+  display: flex;
+}
+
+li {
+  cursor: pointer;
+  padding: 10px;
+}
+
+/*# sourceMappingURL=index.e6b5c606.css.map */
