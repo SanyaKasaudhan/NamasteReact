@@ -1861,11 +1861,7 @@ const restaurantList = [
         </section>
         )
 }
-
-    </div>
-        
-
-
+    </div>    
     </div>
   )
 }
