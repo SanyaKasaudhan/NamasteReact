@@ -1861,7 +1861,181 @@ const restaurantList = [
         </section>
         )
 }
-    </div>    
+    </div>  
+
+
+      {/* Different ways to print data
+      1. Appending only single type of data
+      
+      const RestaurantCard = () => {
+  return (
+    <div className="card">     
+      <h2>{restaurantList[0].data?.name}</h2>
+      <h2>{restaurantList[0].data?.parentId}</h2>
+      <h2>{restaurantList[0].data?.address}</h2>
+    </div>
+  );
+};
+
+const Body = () => {
+  return (
+    <div className="restaurant-list">
+      <RestaurantCard />     
+      <RestaurantCard />    
+      <RestaurantCard />    
+    </div>
+  );
+};
+
+2. To append by passing array index position
+const RestaurantCard = (restaurant) => {
+  console.log(restaurant)
+  return (
+    <div className="card">
+     
+      <h2>{restaurant.restaurant.data?.name}</h2>
+      <h2>{restaurant.restaurant.data?.parentId}</h2>
+      <h2>{restaurant.restaurant.data?.address}</h2>
+    </div>
+  );
+};
+
+Or
+const RestaurantCard = (props) => {
+ return (
+    <h2>{props.restaurant.data?.name}</h2>
+  )}
+  
+const Body = () => {
+  return (
+    <div className="restaurant-list">
+      <RestaurantCard restaurant={restaurantList[0]} />     
+      <RestaurantCard restaurant={restaurantList[1]}/>    
+      <RestaurantCard restaurant={restaurantList[2]} />    
+    </div>
+  );
+};
+
+3. Destructuring props
+const RestaurantCard = ({restaurant}) => {
+  console.log(restaurant)
+  return (
+    <div className="card">
+     
+      <h2>{restaurant.data?.name}</h2>
+      <h2>{restaurant.data?.parentId}</h2>
+      <h2>{restaurant.data?.address}</h2>
+    </div>
+  );
+};
+
+4. Passing the data in props 
+
+const RestaurantCard = ({restaurant}) => {
+const {name,parentId,address}=restaurant.data
+  return (
+    <div className="card">
+      <h2>{name}</h2>
+      <h2>{parentId}</h2>
+      <h2>{address}</h2>
+    </div>
+  );
+};
+
+const Body = () => {
+  return (
+    <div className="restaurant-list">
+      <RestaurantCard restaurant={restaurantList[0]} />     
+      <RestaurantCard restaurant={restaurantList[1]}/>    
+      <RestaurantCard restaurant={restaurantList[2]} />    
+    </div>
+  );
+};
+
+5. Passing data in body
+const RestaurantCard = ({restaurant}) => {
+const {name,parentId,address}=restaurant
+  return (
+    <div className="card">
+      <h2>{name}</h2>
+      <h2>{parentId}</h2>
+      <h2>{address}</h2>
+    </div>
+  );
+};
+
+const Body = () => {
+  return (
+    <div className="restaurant-list">
+      <RestaurantCard restaurant={restaurantList[0].data} />     
+      <RestaurantCard restaurant={restaurantList[1].data}/>    
+      <RestaurantCard restaurant={restaurantList[2].data} />    
+    </div>
+  );
+};
+
+6.Passing single data through props
+const RestaurantCard = ({name,parentId,address}) => {
+  return (
+    <div className="card">
+      <h2>{name}</h2>
+      <h2>{parentId}</h2>
+      <h2>{address}</h2>
+    </div>
+  );
+};
+const Body = () => {
+  return (
+    <div className="restaurant-list">
+      <RestaurantCard name={restaurantList[0].data.name} parentId={restaurantList[0].data.parentId} address={restaurantList[0].data.address}/>     
+      <RestaurantCard name={restaurantList[1].data.name} parentId={restaurantList[1].data.parentId} address={restaurantList[1].data.address}/>     
+      <RestaurantCard name={restaurantList[2].data.name} parentId={restaurantList[2].data.parentId} address={restaurantList[2].data.address}/>     
+     </div>
+  );
+};
+
+7. Passing data through spread operator
+const RestaurantCard = ({name,parentId,address}) => {
+  return (
+    <div className="card">
+      <h2>{name}</h2>
+      <h2>{parentId}</h2>
+      <h2>{address}</h2>
+    </div>
+  );
+};
+const Body = () => {
+  return (
+    <div className="restaurant-list">
+      <RestaurantCard {...restaurantList[0].data} />
+      <RestaurantCard {...restaurantList[1].data} />
+      <RestaurantCard {...restaurantList[2].data} />
+    </div>
+  );
+};
+
+8.Mapping data instead of passing through id
+  const RestaurantCard = ({name,parentId,address}) => {
+  return (
+    <div className="card">
+      <h2>{name}</h2>
+      <h2>{parentId}</h2>
+      <h2>{address}</h2>
+    </div>
+  );
+};
+const Body = () => {
+  return (
+    <div className="restaurant-list">
+      {
+        restaurantList.map( e=>
+          <RestaurantCard key={e.data.id} {...e.data} />     
+          )
+      }
+    </div>
+  );
+};
+      */}
     </div>
   )
 }
