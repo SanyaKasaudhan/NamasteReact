@@ -1,50 +1,133 @@
-import React from 'react'
+// import React, { useState } from "react";
+// import { restaurantList, IMG_CDN_URL } from "../constants";
+// import RestaurantCard from "./RestaurantCard";
 
-export const Restaurants = ({restaurantList}) => {
-  console.log(restaurantList);
+// const filterData = (searchText, restaurant) => {
+//   return restaurant.filter((res) =>
+//     res.data.name.toLowerCase().includes(searchText.toLowerCase())
+//   );
+// };
+// const Restaurants = () => {
+//   // console.log(restaurantList);
+//   const [searchText, setSearchText] = useState("");
+//   const [restaurant, setRestaurant] = useState(restaurantList);
+
+//   const searchData = (searchText, restaurant) => {
+//     if (searchText !== "")
+//      {
+//       const data = filterData(searchText, restaurant);
+//       setRestaurant(data);
+//     }
+//   };
+// return (
+//   <>
+//     <h1 className="food">Food Court</h1>
+//     <input
+//       type="text"
+//       placeholder="searchText your food"
+//       value={searchText}
+//       onChange={(e) => setSearchText(e.target.value)}
+//     ></input>
+//     <button onClick={searchData(searchText, restaurant)}>
+//       searchText
+//     </button>
+//     {searchText}
+//     <div className="box">
+//       {restaurant.map((restaurant) => {
+//         // <RestaurantCard {...restaurant.data} key={restaurant.data.id}/>
+//         return <RestaurantCard {...restaurant.data} key={restaurant.data.id} />;
+//       })}
+//     </div>
+//   </>
+// );
+//     }
+// const RestaurantCard = ({
+//   cloudinaryImageId,
+//   name,
+//   cuisines,
+//   area,
+//   lastMileTravelString,
+//   costForTwoString,
+//   avgRating,
+// }) => {
+//   return (<>
+//   <h1>{name}</h1>
+//   {cuisines}
+//   {area}
+//   </>
+//     );
+//   };
+
+// export default Restaurants;
+
+// import { RestaurantCard } from './RestaurantCard'; /* Import using Named Import */
+// import { restaurantList } from '../config'; /* Named Import*/
+// import { useState } from 'react';
+
+import React, { useState } from "react";
+import { restaurantList, IMG_CDN_URL } from "../constants";
+import RestaurantCard from "./RestaurantCard";
+
+const filterData = (searchText, restaurants) => {
+  return restaurants.filter((restaurant) =>
+    restaurant.data.name.toLowerCase().includes(searchText.toLowerCase())
+  );
+};
+
+const Restaurants = () => {
+  const [searchText, setSearchText] = useState();
+  const [restaurants, setRestaurants] = useState(restaurantList);
+  const [errorMsg, setErrorMsg] = useState("");
+
+  const searchData = (searchText, restaurants) => () => {
+    if (searchText !== "") {
+      const data = filterData(searchText, restaurants);
+      setRestaurants(data);
+      if (data.length === 0) {
+        setErrorMsg("No matches found ");
+      }
+    } else {
+      if (errorMsg) setErrorMsg("");
+      setRestaurants(restaurantList);
+    }
+  };
+
   return (
-    <>
-    {/* <h1 style={{"textAlign":"center"}}>Food Villa</h1>
-        <div className='box'>
-       
-        {
-        restaurantList.map(data =>
-            
-        <section className='container'>
-          <div className='itemdetail'>
-            <div  >
-              <img className='food_img' 
-              src={
-                "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/" +
-                data.data.cloudinaryImageId
-              } alt="image" />
-            </div>
-            <div className='details'>
-              <table>
-                <tr>
-                  <td>
-                    <p><strong>{data.data.name}</strong></p>
-                    <p><strong>Price</strong> : Rs {data.data.costForTwo}</p>
-                    <p><strong>City</strong> : {data.data.locality} </p>
-                  </td>
-                  <td >
-                    <p className=''><strong>Rating :</strong> <span style={{background:"green",color:"#fff",padding:"2px 8px",borderRadius:"5px"}}>{data.data.avgRating}★	</span></p>
-                    <p className=''><strong>Delivery Time :</strong> <span >{data.data.deliveryTime} min</span></p>
-                   
-                  </td>
-                  </tr>
+    <div className="">
+      <div className="search-container">
+        <input
+          type="text"
+          placeholder=" Search for restaurant"
+          value={searchText}
+          className="search-input"
+          key="input-text"
+          onChange={(e) => setSearchText(e.target.value)}
+        />
+        <button
+          className="search-btn"
+          onClick={searchData(searchText, restaurants)}
+        >
+          {" "}
+          Search{" "}
+        </button>
+      </div>
+      {errorMsg && (
+        <div className="error-container" id="error">
+          <span className="error-msg" id="error-msg">
+            {errorMsg}
+          </span>
+        </div>
+      )}
 
-                
+      <div className="box">
+        {restaurants.map((restaurant) => {
+          return (
+            <RestaurantCard {...restaurant.data} key={restaurant.data.id} />
+          );
+        })}
+      </div>
+    </div>
+  );
+};
 
-              </table>
-            </div>
-          </div>
-        </section>
-        )
-}
-
-    </div> */}
-    
-    </>
-  )
-}
+export default Restaurants;

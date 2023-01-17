@@ -1,15 +1,14 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { Content } from "./Content";
 import { Navbar } from "./Navbar";
-
+import '../../App.css'
+import Restaurants from "./Restaurants";
 const Header = () => {
   return (
     <>
       <h1>
         <Navbar />
-        <Content/>
-        Hi
+        <Restaurants />
       </h1>
     </>
   );
