@@ -1,43 +1,42 @@
-import React, { useState } from "react";
-import { IMG_CDN_URL, restaurantList } from "../constants";
-// import { Restaurants } from "./Restaurants";
-import { IMG_CDN_URL, restaurantList } from "../constants";
+import React from "react";
+import "./Content.css";
+import { useState } from "react";
+import RestaurantCard from "./RestaurantCard";
+import {restaurantList} from "../constants";
 export const Content = () => {
-  const [search, setSearch] = useState();
-  const [filteredSearch, setFilteredSearch] = useState(restaurantList);
-  const [allRestaurant, setAllRestaurant] = useState(restaurantList);
-  const searchRestaurant = () => {};
+  const [searchText, setSearchText] = useState("");
+  const [restaurants, setRestaurant] = useState(restaurantList);
+
+
+  function searchResturant(searchText,restaurants){
+    return restaurants.filter(restaurant => restaurant.data.name.includes(searchText));
+  }
+
   return (
     <>
-      <input type="search" placeholder="Search your restaurant" />
-      <button type="button" onClick={searchRestaurant}>
-        Search
-      </button>
-    <Body />
-      
-      {restaurantList[0].data?.name}
-      {/* <Restaurants restaurant={restaurantList[0]} /> */}
+      <div className="search-container">
+        <input
+          type="text"
+          className="search-input"
+          placeholder="Seach here"
+          value={searchText}
+          onChange={(e)=>{
+            setSearchText(e.target.value);
+          }}
+        />
+        <button className="search-btn" onClick={()=>{
+            let result = searchResturant(searchText,restaurants);
+            setRestaurant(result);
+        }}>Seach</button>
+        <p>{searchText}</p>
+      </div>
+      <div className="resturant-list">
+        {restaurants.map((Element) => {
+          return <RestaurantCard {...Element.data} key={Element.data.id} />;
+        })}
+      </div>
     </>
   );
 };
+export default Content;
 
-const RestaurantCard = ({name,parentId,address}) => {
-  return (
-    <div className="card">
-      <h2>{name}</h2>
-      <h2>{parentId}</h2>
-      <h2>{address}</h2>
-    </div>
-  );
-};
-const Body = () => {
-  return (
-    <div className="restaurant-list">
-      {
-        restaurantList.map( e=>
-          <RestaurantCard key={e.data.id} {...e.data} />     
-          )
-      }
-    </div>
-  );
-};
