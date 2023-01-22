@@ -1,6 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import "../../App.css";
 export const Navbar = () => {
+  const[isLogin,setIsLogin]=useState(true);
+  const login=()=>{
+    if(isLogin){
+      setIsLogin(false);
+    }
+    else{
+      setIsLogin(true);
+    }
+  }
   return (
     <>
       <div className="nav_head">
@@ -11,6 +20,10 @@ export const Navbar = () => {
           <li>About Us</li>
           <li>Cart</li>
         </ul>
+        {isLogin ? 
+        <button onClick={login}>Login</button> : 
+        <button onClick={login}>Logout</button>
+        }
       </div>
     </>
   );

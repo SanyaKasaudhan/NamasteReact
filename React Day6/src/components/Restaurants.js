@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react";
-import { restaurantList, IMG_CDN_URL } from "../constants";
+import React, { useState } from "react";
+import { restaurantList } from "../constants";
 import RestaurantCard from "./RestaurantCard";
 
-const filterData = (searchText, restaurants) => {
-  return restaurants.filter((restaurant) =>
+const filterData = (searchText, allRestaurants) => {
+  return allRestaurants.filter((restaurant) =>
     restaurant.data.name.toLowerCase().includes(searchText.toLowerCase())
     
   );
@@ -15,7 +15,7 @@ const Restaurants = () => {
   const [allRestaurants, setAllRestaurants]=useState(restaurantList);
   const [errorMsg, setErrorMsg] = useState("");
 
- const searchData = (searchText, restaurants) => () => {
+ const searchData = (searchText, allRestaurants) => () => {
     if (searchText !== "") {
       const data = filterData(searchText, allRestaurants);
       setRestaurants(data);
