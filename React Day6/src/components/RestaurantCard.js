@@ -1,35 +1,4 @@
 import { IMG_CDN_URL } from "../constants";
-// const RestaurantCard = ({
-//     cloudinaryImageId,
-//     name,
-//     cuisines,
-//     area,
-//     lastMileTravelString,
-//     costForTwoString,
-//     avgRating,
-//   }) => {
-//     console.log("name",name,avgRating)
-//     return (
-//       <div className="card">
-//         card
-//         <img
-//           src={
-//             "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/" +
-//             cloudinaryImageId
-//           }
-//         />
-//         <h3>{name}</h3>
-//         <h5>{cuisines.join(", ")}</h5>
-//         <h5>{area}</h5>
-//         <span>
-//         <h5><i class="fa-solid fa-star"></i>{avgRating}</h5>
-//           <h5>{lastMileTravelString}</h5>
-//           <h5>{costForTwoString}</h5>
-//         </span>
-//       </div>
-//     );
-//   };
-
 const RestaurantCard = ({
   cloudinaryImageId,
   name,
