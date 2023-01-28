@@ -19,7 +19,7 @@ npm init -y -> to skip configuration
 
 . why npm ? 
 helper packages -> React app is powered by a lot of packages for bundling, optimizing, minifying 
-maven : java :: rnpm : react 
+maven : java :: npm : react 
 
 `Parcel` : 
 
