@@ -20,6 +20,7 @@ export const Navbar = () => {
           <Link to="/"> Home </Link>
           <Link to="/about"> About Us </Link>
           <Link to="/cart"> Cart </Link>
+          <Link to="/instamart">Instamart</Link>
         </ul>
         {isLogin ? 
         <button onClick={login}>Login</button> : 
