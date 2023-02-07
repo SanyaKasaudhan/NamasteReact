@@ -6,7 +6,7 @@ const About = ()=>{
         <>
         <h1>About us</h1>
              
-  {user.email}
+  {user.email}<br/>
 {
   user.name
 }
@@ -14,10 +14,16 @@ const About = ()=>{
 <input type="text" value={user.name}></input><br/>
 <input type="text" onChange={
     e=> setUser({
-        name:e.target.value,
-        email:"Sudh@gmail.com"
+        ...user,
+        name:e.target.value
     })
-}></input>
+}></input><br/>
+<input type="text" onChange={
+    e=> setUser({
+        ...user,
+        email:e.target.value
+    })
+}></input><br/>
         </>
     )
 }
