@@ -285,4 +285,5 @@
 .cart-item-description{
   font-size: 20px;  
   font-weight: 300;
+  text-decoration: none;
 }
