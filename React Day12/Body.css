@@ -287,3 +287,15 @@
   font-weight: 300;
   text-decoration: none;
 }
+
+.totalPrice{
+  margin-left: 855px;
+  display: flex;
+  font-size: larger;
+}
+
+
+.total{
+  margin-left: 155px;
+  color: rgb(57, 65, 191);
+}

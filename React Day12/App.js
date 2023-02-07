@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 import { Provider } from "react-redux";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import About from "./src/components/About";
+import Cart from "./src/components/Body/Cart";
 import Restaurant from "./src/components/Body/Restaurant";
 import RestaurantList from "./src/components/Body/RestaurantList";
 import Error from "./src/components/Error";
@@ -36,6 +37,10 @@ const app = createBrowserRouter([
     {
       path:"/restaurant/:id",
       element:<RestaurantList />
+    }, 
+    {
+      path:"/cart",
+      element:<Cart />
     }
  ]
   }

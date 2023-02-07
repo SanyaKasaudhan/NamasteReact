@@ -15,7 +15,7 @@ const Navbar = () => {
       <ul className='nav-head'>
         <Link className='nav_link' to="/">Home</Link>
         <Link className='nav_link' to="/about">About </Link>
-        <Link className='nav_link'>Cart {cartItems.length} </Link>
+        <Link className='nav_link' to="/cart">Cart {cartItems.length} </Link>
       </ul>
       <div className='nav-btn'>
         <button className='nav-signin'>Sign In</button>
