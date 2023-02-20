@@ -13,3 +13,4 @@ npm install react
 npm install react-dom 
 npm install babel-plugin-transform-remove-console --save-dev
 npm i @reduxjs/toolkit react-redux
+npm i axios //if needed
