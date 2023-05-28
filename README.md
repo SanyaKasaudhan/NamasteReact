@@ -2,7 +2,7 @@
 # NamasteReact
 add it in package.json for all the day project
 
-"start": "parcel index.html",
+    "start": "parcel index.html",
 
     "build": "parcel build index.html"
 
